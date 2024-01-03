@@ -1,0 +1,42 @@
+{
+  "name": "pkg6/wework-finance",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "php",
+    "wework",
+    "wework finance SDK"
+  ],
+  "description": "WeWorkFinanceSDK(https://developer.work.weixin.qq.com/document/path/91774)",
+  "authors": [
+    {
+      "name": "zzqqw",
+      "email": "zhiqiangwang@aliyun.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*",
+    "ext-openssl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pkg6\\WeWorkFinance\\": "src/"
+    }
+  },
+  "suggest": {
+    "ext-wxwork_finance_sdk": "*",
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Pkg6\\WeWorkFinance\\tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "msgid": "17972321270926900092_1603875944",
+  "action": "send",
+  "from": "wmErxtDgAA9AW32YyyuYRimKr7D1KWlw",
+  "tolist": [
+    "kenshin"
+  ],
+  "roomid": "",
+  "msgtime": 1603875944122,
+  "msgtype": "disagree",
+  "disagree": {
+    "userid": "wmErxtDgAA9AW32YyyuYRimKr7D1KWlw",
+    "disagree_time": 1603875944122
+  }
+}

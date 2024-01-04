@@ -1,0 +1,19 @@
+{
+  "msgid": "6623217619416669654_1603875612",
+  "action": "send",
+  "from": "icef",
+  "tolist": [
+    "wmErxtDgAAhteCglUZH2kUt3rq431qmg"
+  ],
+  "roomid": "",
+  "msgtime": 1603875611148,
+  "msgtype": "emotion",
+  "emotion": {
+    "type": 1,
+    "width": 290,
+    "height": 290,
+    "imagesize": 962604,
+    "md5sum": "94c2b0bba52cc456cb8221b248096612",
+    "sdkfileid": "4eE1ESTVNalE1TnprMFh6RTJNRE00TnpVMk1UST0aIDc0NzI2NjY1NzE3NTc0Nzg2ZDZlNzg2YTY5NjY2MTYx"
+  }
+}

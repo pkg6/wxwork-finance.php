@@ -1,0 +1,15 @@
+{
+  "msgid": "10950316726562067988_1666601563058",
+  "action": "send",
+  "from": "icef",
+  "tolist": [
+    "WoBeiQi..."
+  ],
+  "roomid": "",
+  "msgtime": 1666601558876,
+  "msgtype": "voiptext",
+  "info": {
+    "callduration": 9,
+    "invitetype": 2
+  }
+}

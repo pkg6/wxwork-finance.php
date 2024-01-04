@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the pkg6/wework-finance.
+ *
+ * (c) pkg6 <https://github.com/pkg6>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
+
 namespace Pkg6\WeWorkFinance\Provider;
 
 use Pkg6\WeWorkFinance\Exception\FinanceSDKException;
@@ -12,7 +20,6 @@ class PHPExtProvider extends AbstractProvider
      * @var \WxworkFinanceSdk
      */
     protected $financeSdk;
-
 
     /**
      * {@inheritdoc}
@@ -32,6 +39,7 @@ class PHPExtProvider extends AbstractProvider
 
     /**
      * {@inheritdoc}
+     *
      * @throws FinanceSDKException
      */
     public function getMediaData(string $sdkFileId, string $ext): \SplFileInfo
@@ -42,26 +50,29 @@ class PHPExtProvider extends AbstractProvider
         } catch (\WxworkFinanceSdkExcption $e) {
             throw new FinanceSDKException('获取文件失败' . $e->getMessage(), $e->getCode());
         }
+
         return new \SplFileInfo($path);
     }
 
     /**
      * 获取php-ext-include.
+     *
      * @param array $config ...
+     *
      * @throws FinanceSDKException
      * @throws InvalidArgumentException
      */
     protected function setFinanceSDK(array $config = []): void
     {
-        if (!extension_loaded('wxwork_finance_sdk')) {
+        if ( ! extension_loaded('wxwork_finance_sdk')) {
             throw new FinanceSDKException('缺少ext-wxwork_finance_sdk扩展');
         }
 
         $this->config = array_merge($this->config, $config);
-        if (!isset($this->config['corpid'])) {
+        if ( ! isset($this->config['corpid'])) {
             throw new InvalidArgumentException('缺少配置:corpid');
         }
-        if (!isset($this->config['secret'])) {
+        if ( ! isset($this->config['secret'])) {
             throw new InvalidArgumentException('缺少配置:secret');
         }
         $options = ['timeout' => 30];

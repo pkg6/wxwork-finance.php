@@ -1,0 +1,18 @@
+{
+  "msgid": "2641513858500683770_1603876152",
+  "action": "send",
+  "from": "icefog",
+  "tolist": [
+    "wmN6etBgAA0sbJ3invMvRxPQDFoq9uWA"
+  ],
+  "roomid": "",
+  "msgtime": 1603876152141,
+  "msgtype": "location",
+  "location": {
+    "longitude": 116.586285899,
+    "latitude": 39.911125799,
+    "address": "北京市xxx区xxx路xxx大厦x座",
+    "title": "xxx管理中心",
+    "zoom": 15
+  }
+}

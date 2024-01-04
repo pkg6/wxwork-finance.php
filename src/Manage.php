@@ -1,11 +1,18 @@
 <?php
 
+/*
+ * This file is part of the pkg6/wework-finance.
+ *
+ * (c) pkg6 <https://github.com/pkg6>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
+
 namespace Pkg6\WeWorkFinance;
 
 use Pkg6\WeWorkFinance\Exception\InvalidArgumentException;
 
 /**
- *
  * @method string getTempDir();
  * @method string getChatData(int $seq, int $limit)
  * @method string decryptData(string $randomKey, string $encryptStr)
@@ -29,7 +36,7 @@ class Manage
 //            ],
 //        ],
         'provider' => [
-            'default'   => 'ext',
+            'default' => 'ext',
             'providers' => [
                 'ext' => \Pkg6\WeWorkFinance\Provider\PHPExtProvider::class,
                 'ffi' => \Pkg6\WeWorkFinance\Provider\FFIProvider::class,
@@ -47,21 +54,26 @@ class Manage
 
     /**
      * @param $default
+     *
      * @return SDK
+     *
      * @throws InvalidArgumentException
      */
     public function sdk($default)
     {
-        if (!$this->config['config'] || !$this->config['config'][$default] || !$this->config['providers']) {
+        if ( ! $this->config['config'] || ! $this->config['config'][$default] || ! $this->config['providers']) {
             throw new InvalidArgumentException("Missing parameter");
         }
+
         return new SDK($this->config['config'][$default], $this->config['provider']);
     }
 
     /**
      * @param $name
      * @param $arguments
+     *
      * @return false|mixed
+     *
      * @throws InvalidArgumentException
      */
     public function __call($name, $arguments)

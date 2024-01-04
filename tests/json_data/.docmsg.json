@@ -1,0 +1,17 @@
+{
+  "msgid": "9732089160923053207_1603877765",
+  "action": "send",
+  "from": "ken",
+  "tolist": [
+    "icef",
+    "test"
+  ],
+  "roomid": "wrJawBCQAAStr3jxVxEH",
+  "msgtime": 1603877765291,
+  "msgtype": "docmsg",
+  "doc": {
+    "title": "测试&演示客户",
+    "doc_creator": "test",
+    "link_url": "https://doc.weixin.qq.com/txdoc/excel?docid=xxx"
+  }
+}

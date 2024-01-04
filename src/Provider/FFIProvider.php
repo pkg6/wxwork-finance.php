@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the pkg6/wework-finance.
+ *
+ * (c) pkg6 <https://github.com/pkg6>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
+
 namespace Pkg6\WeWorkFinance\Provider;
 
 use FFI;
@@ -29,16 +37,15 @@ class FFIProvider extends AbstractProvider
      */
     protected $cLib = 'libWeWorkFinanceSdk_C.so';
 
-
     public function __destruct()
     {
         // 释放sdk
         $this->financeSdk instanceof FFI && $this->ffi->DestroySdk($this->financeSdk);
     }
 
-
     /**
      * {@inheritdoc}
+     *
      * @throws FinanceSDKException ...
      */
     public function getChatData(int $seq, int $limit, int $timeout = 0): string
@@ -55,11 +62,13 @@ class FFIProvider extends AbstractProvider
         // 释放buffer
         $this->ffi->FreeSlice($chatDatas);
         $chatDatas->len = 0;
+
         return $resStr;
     }
 
     /**
      * {@inheritdoc}
+     *
      * @throws FinanceSDKException ...
      */
     public function decryptData(string $randomKey, string $encryptStr): string
@@ -74,11 +83,13 @@ class FFIProvider extends AbstractProvider
         // 释放buffer
         $this->ffi->FreeSlice($msg);
         $msg->len = 0;
+
         return $resStr;
     }
 
     /**
      * {@inheritdoc}
+     *
      * @throws FinanceSDKException
      */
     public function getMediaData(string $sdkFileId, string $ext): \SplFileInfo
@@ -89,13 +100,16 @@ class FFIProvider extends AbstractProvider
         } catch (\WxworkFinanceSdkExcption $e) {
             throw new FinanceSDKException('获取文件失败' . $e->getMessage(), $e->getCode());
         }
+
         return new \SplFileInfo($path);
     }
 
     /**
      * 下载媒体资源.
+     *
      * @param string $sdkFileId file id
      * @param string $path 文件路径
+     *
      * @throws FinanceSDKException
      */
     protected function downloadMediaData(string $sdkFileId, string $path): void
@@ -114,7 +128,7 @@ class FFIProvider extends AbstractProvider
             }
             // buffer写入文件
             $handle = fopen($path, 'ab+');
-            if (!$handle) {
+            if ( ! $handle) {
                 throw new \RuntimeException(sprintf('打开文件失败:%s', $path));
             }
             fwrite($handle, FFI::string($media->data, $media->data_len), $media->data_len);
@@ -132,21 +146,23 @@ class FFIProvider extends AbstractProvider
 
     /**
      * 获取php-ext-include.
+     *
      * @param array $config ...
+     *
      * @throws FinanceSDKException ...
      * @throws InvalidArgumentException ...
      */
     protected function setFinanceSDK(array $config = []): void
     {
-        if (!extension_loaded('ffi')) {
+        if ( ! extension_loaded('ffi')) {
             throw new FinanceSDKException('缺少ext-ffi扩展');
         }
 
         $this->config = array_merge($this->config, $config);
-        if (!isset($this->config['corpid'])) {
+        if ( ! isset($this->config['corpid'])) {
             throw new InvalidArgumentException('缺少配置:corpid');
         }
-        if (!isset($this->config['secret'])) {
+        if ( ! isset($this->config['secret'])) {
             throw new InvalidArgumentException('缺少配置:secret');
         }
         isset($this->config['proxy']) || $this->config['proxy'] = '';
@@ -157,7 +173,8 @@ class FFIProvider extends AbstractProvider
         //C语言头WeWorkFinanceSdk_C.h
         isset($this->config['include_we_work_finance_sdk_c_h']) || $this->config['include_we_work_finance_sdk_c_h'] = $includePath . $this->cHeader;
         //C语言库 libWeWorkFinanceSdk_C.so
-        isset($this->config['include_lib_we_work_finance_sdk_c_so']) || $this->config['include_lib_we_work_finance_sdk_c_so'] = $includePath . $this->cLib;;
+        isset($this->config['include_lib_we_work_finance_sdk_c_so']) || $this->config['include_lib_we_work_finance_sdk_c_so'] = $includePath . $this->cLib;
+        ;
 
         $this->cHeader = $this->config['include_we_work_finance_sdk_c_h'];
         $this->cLib = $this->config['include_lib_we_work_finance_sdk_c_so'];

@@ -14,6 +14,9 @@ use Pkg6\WeWorkFinance\Exception\InvalidArgumentException;
  */
 class SDK
 {
+    /**
+     * @var array
+     */
     protected $config = [
         'default' => 'ext',
         'providers' => [
@@ -22,21 +25,34 @@ class SDK
         ],
     ];
 
+    /**
+     * @var array
+     */
     protected $wxConfig = [
-        'corpid' => "foo",
-        'secret' => "foo",
-        'private_keys' => [
-            "v1" => "foo",
-        ],
+//        'corpid' => "foo",
+//        'secret' => "foo",
+//        'private_keys' => [
+//            "v1" => "foo",
+//        ],
     ];
 
 
+    /**
+     * @param $wxConfig
+     * @param $config
+     */
     public function __construct($wxConfig, $config = [])
     {
         $this->config = array_merge($this->config, $config);
         $this->wxConfig = array_merge($this->wxConfig, $wxConfig);
     }
 
+    /**
+     * @param $name
+     * @param $arguments
+     * @return false|mixed
+     * @throws InvalidArgumentException
+     */
     public function __call($name, $arguments)
     {
         $provider = $this->provider($this->config['default']);
@@ -47,6 +63,11 @@ class SDK
 
     }
 
+    /**
+     * @param $providerName
+     * @return ProviderInterface
+     * @throws InvalidArgumentException
+     */
     public function provider($providerName): ProviderInterface
     {
         if (!$this->config['providers'] || !$this->config['providers'][$providerName]) {

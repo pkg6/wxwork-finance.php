@@ -20,7 +20,7 @@ class SeeTest extends TestCase
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         $this->sdk = new SDK([
-            'corpid' =>"corpid",
+            'corpid' => "corpid",
             'secret' => "secret",
             'private_keys' => [
                 "v1" => "private_key",
@@ -36,7 +36,6 @@ class SeeTest extends TestCase
     {
         $chatDataArr = $this->sdk->getDecryptChatData(0, 1000);
         self::assertNotEmpty($chatDataArr);
-
         $videoTest = false;
         $imageTest = false;
         foreach ($chatDataArr as $msg) {

@@ -25,6 +25,13 @@ interface ProviderInterface
      */
     public function getChatData(int $seq, int $limit): string;
 
+
+    /**
+     * 获取资源文件临时目录
+     * @return string
+     */
+    public function getTempDir(): string;
+
     /**
      * 解密数据.
      * @param string $randomKey 通过openssl解密后的key

@@ -5,6 +5,8 @@ namespace Pkg6\WeWorkFinance;
 use Pkg6\WeWorkFinance\Exception\InvalidArgumentException;
 
 /**
+ *
+ * @method string getTempDir();
  * @method string getChatData(int $seq, int $limit)
  * @method string decryptData(string $randomKey, string $encryptStr)
  * @method \SplFileInfo getMediaData(string $sdkFileId, string $ext)
@@ -16,18 +18,18 @@ class Manage
      * @var array
      */
     protected $config = [
-        "default"   => "wx1",
-        "config"    => [
+        "default" => "wx1",
+        "config" => [
             "wx1" => [
-                'corpid'       => "foo",
-                'secret'       => "foo",
+                'corpid' => "foo",
+                'secret' => "foo",
                 'private_keys' => [
                     "v1" => "foo",
                 ],
             ],
         ],
         'provider' => [
-            'default'   => 'ext',
+            'default' => 'ext',
             'providers' => [
                 'ext' => \Pkg6\WeWorkFinance\Provider\PHPExtProvider::class,
                 'ffi' => \Pkg6\WeWorkFinance\Provider\FFIProvider::class,
@@ -46,6 +48,7 @@ class Manage
     /**
      * @param $default
      * @return SDK
+     * @throws InvalidArgumentException
      */
     public function sdk($default)
     {

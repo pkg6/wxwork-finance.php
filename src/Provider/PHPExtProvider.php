@@ -36,7 +36,7 @@ class PHPExtProvider extends AbstractProvider
      */
     public function getMediaData(string $sdkFileId, string $ext): \SplFileInfo
     {
-        $path = $this->temp_dir($sdkFileId, $ext);
+        $path = $this->tempDirPath($sdkFileId, $ext);
         try {
             $this->financeSdk->downloadMedia($sdkFileId, $path);
         } catch (\WxworkFinanceSdkExcption $e) {

@@ -83,7 +83,7 @@ class FFIProvider extends AbstractProvider
      */
     public function getMediaData(string $sdkFileId, string $ext): \SplFileInfo
     {
-        $path = $this->temp_dir($sdkFileId, $ext);
+        $path = $this->tempDirPath($sdkFileId, $ext);
         try {
             $this->downloadMediaData($sdkFileId, $path);
         } catch (\WxworkFinanceSdkExcption $e) {
@@ -160,7 +160,7 @@ class FFIProvider extends AbstractProvider
         isset($this->config['include_lib_we_work_finance_sdk_c_so']) || $this->config['include_lib_we_work_finance_sdk_c_so'] = $includePath . $this->cLib;;
 
         $this->cHeader = $this->config['include_we_work_finance_sdk_c_h'];
-        $this->cLib    = $this->config['include_lib_we_work_finance_sdk_c_so'];
+        $this->cLib = $this->config['include_lib_we_work_finance_sdk_c_so'];
         // 引入ffi
         $this->ffi = FFI::cdef(file_get_contents($this->cHeader), $this->cLib);
 

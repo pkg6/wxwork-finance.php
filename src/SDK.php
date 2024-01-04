@@ -6,6 +6,7 @@ use Pkg6\WeWorkFinance\Exception\InvalidArgumentException;
 
 
 /**
+ * @method string getTempDir();
  * @method string getChatData(int $seq, int $limit)
  * @method string decryptData(string $randomKey, string $encryptStr)
  * @method \SplFileInfo getMediaData(string $sdkFileId, string $ext)
@@ -14,7 +15,7 @@ use Pkg6\WeWorkFinance\Exception\InvalidArgumentException;
 class SDK
 {
     protected $config = [
-        'default'   => 'ext',
+        'default' => 'ext',
         'providers' => [
             'ext' => \Pkg6\WeWorkFinance\Provider\PHPExtProvider::class,
             'ffi' => \Pkg6\WeWorkFinance\Provider\FFIProvider::class,
@@ -22,8 +23,8 @@ class SDK
     ];
 
     protected $wxConfig = [
-        'corpid'       => "foo",
-        'secret'       => "foo",
+        'corpid' => "foo",
+        'secret' => "foo",
         'private_keys' => [
             "v1" => "foo",
         ],
@@ -32,7 +33,7 @@ class SDK
 
     public function __construct($wxConfig, $config = [])
     {
-        $this->config   = array_merge($this->config, $config);
+        $this->config = array_merge($this->config, $config);
         $this->wxConfig = array_merge($this->wxConfig, $wxConfig);
     }
 

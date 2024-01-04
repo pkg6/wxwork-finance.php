@@ -37,16 +37,28 @@ abstract class AbstractProvider implements ProviderInterface
         return $this->config;
     }
 
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTempDir(): string
+    {
+        isset($this->config['temp_dir']) || $this->config['temp_dir'] = sys_get_temp_dir() . DIRECTORY_SEPARATOR . "pkg6wx";
+        return $this->config['temp_dir'];
+    }
+
     /**
      * @param string $sdkFileId
      * @param string $ext
      * @return string
      */
-    public function temp_dir(string $sdkFileId, string $ext)
+    protected function tempDirPath(string $sdkFileId, string $ext): string
     {
-        isset($this->config['temp_dir']) || $this->config['temp_dir'] = sys_get_temp_dir().DIRECTORY_SEPARATOR."pkg6wx";
-        $path = $this->config['temp_dir'] . DIRECTORY_SEPARATOR . $this->config['corpid'] . DIRECTORY_SEPARATOR . md5($sdkFileId);
+        $path = $this->getTempDir() . DIRECTORY_SEPARATOR . $this->config['corpid'] . DIRECTORY_SEPARATOR . md5($sdkFileId);
         $ext && $path .= '.' . $ext;
+        if (!is_dir($basePath = pathinfo($path, PATHINFO_DIRNAME))) {
+            @mkdir($basePath, 0777, true);
+        }
         return $path;
     }
 
@@ -67,9 +79,9 @@ abstract class AbstractProvider implements ProviderInterface
         }
         $privateKeys = $config['private_keys'];
         try {
-            $chatData    = json_decode($this->getChatData($seq, $limit), true)['chatdata'];
+            $chatData = json_decode($this->getChatData($seq, $limit), true)['chatdata'];
             $newChatData = [];
-            $lastSeq     = 0;
+            $lastSeq = 0;
             foreach ($chatData as $i => $item) {
                 $lastSeq = $item['seq'];
                 if (!isset($privateKeys[$item['publickey_ver']])) {
@@ -85,7 +97,7 @@ abstract class AbstractProvider implements ProviderInterface
                 if ($decryptRandKey === null) {
                     continue;
                 }
-                $newChatData[$i]        = json_decode($this->decryptData($decryptRandKey, $item['encrypt_chat_msg']), true);
+                $newChatData[$i] = json_decode($this->decryptData($decryptRandKey, $item['encrypt_chat_msg']), true);
                 $newChatData[$i]['seq'] = $item['seq'];
             }
             if (!empty($chatData) && empty($chatData) && $retry && $retry < 10) {

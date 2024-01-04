@@ -4,7 +4,7 @@ namespace Pkg6\WeWorkFinance\Exception;
 
 use Exception;
 
-class FinanceSDKException  extends Exception
+class FinanceSDKException extends Exception
 {
 
 }

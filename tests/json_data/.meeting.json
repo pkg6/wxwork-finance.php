@@ -1,0 +1,20 @@
+{
+  "msgid": "5935786683775673543_1603877328",
+  "action": "send",
+  "from": "ken",
+  "tolist": [
+    "icef",
+    "test"
+  ],
+  "roomid": "wr2vOpDgAAN4zVWKbS",
+  "msgtime": 1603877328914,
+  "msgtype": "meeting",
+  "meeting": {
+    "topic": "夕会",
+    "starttime": 1603877400,
+    "endtime": 1603881000,
+    "address": "",
+    "remarks": "",
+    "meetingid": 1210342560
+  }
+}

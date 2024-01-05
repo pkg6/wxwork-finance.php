@@ -1,9 +1,16 @@
 <?php
 
+/*
+ * This file is part of the pkg6/wework-finance.
+ *
+ * (c) pkg6 <https://github.com/pkg6>
+ *
+ * This source file is subject to the MIT license that is bundled.
+ */
+
 namespace Pkg6\WeWorkFinance;
 
 use Pkg6\WeWorkFinance\Exception\InvalidArgumentException;
-
 
 /**
  * @method string getTempDir();
@@ -36,7 +43,6 @@ class SDK
 //        ],
     ];
 
-
     /**
      * @param $wxConfig
      * @param $config
@@ -50,7 +56,9 @@ class SDK
     /**
      * @param $name
      * @param $arguments
+     *
      * @return false|mixed
+     *
      * @throws InvalidArgumentException
      */
     public function __call($name, $arguments)
@@ -60,19 +68,21 @@ class SDK
             return call_user_func_array([$provider, $name], $arguments);
         }
         throw new InvalidArgumentException('WxFinanceSDK::Method not defined. method:' . $name);
-
     }
 
     /**
      * @param $providerName
+     *
      * @return ProviderInterface
+     *
      * @throws InvalidArgumentException
      */
     public function provider($providerName): ProviderInterface
     {
-        if (!$this->config['providers'] || !$this->config['providers'][$providerName]) {
+        if ( ! $this->config['providers'] || ! $this->config['providers'][$providerName]) {
             throw new InvalidArgumentException("configurations are missing {$providerName} options");
         }
+
         return (new $this->config['providers'][$providerName]())->setConfig($this->wxConfig);
     }
 }

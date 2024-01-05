@@ -1,0 +1,15 @@
+{
+  "msgid": "8891446340739254950_1603875826",
+  "action": "send",
+  "from": "wmGAgeDQAAvQeaTqWwkMTxGMkvI7OOuQ",
+  "tolist": [
+    "kenshin"
+  ],
+  "roomid": "",
+  "msgtime": 1603875826656,
+  "msgtype": "agree",
+  "agree": {
+    "userid": "wmGAgeDQAAvQeaTqWwkMTxGMkvI7OOuQ",
+    "agree_time": 1603875826656
+  }
+}

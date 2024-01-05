@@ -1,0 +1,18 @@
+{
+  "msgid": "18039699423706571225_1603875608",
+  "action": "send",
+  "from": "kens",
+  "tolist": [
+    "wmErxtDgAArDlFIhf76O6w4GxU81al8w"
+  ],
+  "roomid": "",
+  "msgtime": 1603875608214,
+  "msgtype": "file",
+  "file": {
+    "md5sum": "18e93fc2ea884df23b3d2d3b8667b9f0",
+    "filename": "资料.docx",
+    "fileext": "docx",
+    "filesize": 18181,
+    "sdkfileid": "E4ODRkZjIzYjNkMmQzYjg2NjdiOWYwMDIwMTA1MDIwMTAwMDQwMBI4TkRkZk1UWTRPRGcxTURrek9UZzBPVEF6TTE4eE1EUXpOVGcxTlRVNVh6RTJNRE00TnpVMk1EZz0aIDMwMzkzMzY0NjEzNjM3NjY2NDY1NjMzNjYxMzIzNzYx"
+  }
+}

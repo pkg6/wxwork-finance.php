@@ -1,0 +1,18 @@
+{
+  "msgid": "8632214264349267353_1603786184",
+  "action": "send",
+  "from": "woJ7ijBwAAmqwojT8r_DaNMbr_NAvaag",
+  "tolist": [
+    "woJ7ijBwAA6SjS_sIyPLZtyEPJlT7Cfw",
+    "tiny-six768"
+  ],
+  "roomid": "wrJ7ijBwAAG1vly_DzVI72Ghc-PtA5Dw",
+  "msgtime": 1603786183955,
+  "msgtype": "external_redpacket",
+  "redpacket": {
+    "type": 1,
+    "wish": "恭喜发财，大吉大利",
+    "totalcnt": 2,
+    "totalamount": 20
+  }
+}

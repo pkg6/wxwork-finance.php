@@ -1,0 +1,17 @@
+{
+  "msgid": "333590477316965370_1603877439",
+  "action": "send",
+  "from": "kens",
+  "tolist": [
+    "1000000444696"
+  ],
+  "roomid": "",
+  "msgtime": 1603877439038,
+  "msgtype": "redpacket",
+  "redpacket": {
+    "type": 1,
+    "wish": "恭喜发财，大吉大利",
+    "totalcnt": 1,
+    "totalamount": 3000
+  }
+}

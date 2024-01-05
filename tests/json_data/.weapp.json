@@ -1,0 +1,17 @@
+{
+  "msgid": "11930598857592605935_1603875608",
+  "action": "send",
+  "from": "kens",
+  "tolist": [
+    "wmGAgeDQAAsgQetTQGqRbMxrkodpM3fA"
+  ],
+  "roomid": "",
+  "msgtime": 1603875608691,
+  "msgtype": "weapp",
+  "weapp": {
+    "title": "开始聊天前请仔细阅读服务须知事项",
+    "description": "客户需同意存档聊天记录",
+    "username": "xxx@app",
+    "displayname": "服务须知"
+  }
+}

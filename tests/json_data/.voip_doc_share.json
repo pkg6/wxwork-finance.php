@@ -1,0 +1,17 @@
+{
+  "msgid": "16527954622422422847_1594199256",
+  "action": "send",
+  "from": "18002520162",
+  "tolist": [
+    "wo137MCgAAYW6pIiKKrDe5SlzEhSgwbA"
+  ],
+  "msgtime": 1594199235014,
+  "msgtype": "voip_doc_share",
+  "voipid": "gr2751c98b19300571f8afb3b74514bd32",
+  "voip_doc_share": {
+    "filename": "欢迎使用微盘.pdf.pdf",
+    "md5sum": "ff893900f24e55e216e617a40e5c4648",
+    "filesize": 4400654,
+    "sdkfileid": "CpsBKjAqZUlLdWJMd2gvQ1JxMzd0ZjlpdW5mZzJOOE9JZm5kbndvRmRqdnBETjY0QlcvdGtHSFFTYm95dHM2VlllQXhkUUN5KzRmSy9KT3pudnA2aHhYZFlPemc2aVZ6YktzaVh3YkFPZHlqNnl2L2MvcGlqcVRjRTlhZEZsOGlGdHJpQ2RWSVNVUngrVFpuUmo3TGlPQ1BJemlRPT0SOE5EZGZNVFk0T0RnMU16YzVNVGt5T1RJMk9GODFNelUyTlRBd01qQmZNVFU1TkRFNU9USTFOZz09GiA3YTcwNmQ2Zjc5NjY3MDZjNjY2Zjc4NzI3NTZmN2E2YQ=="
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "msgid": "118732825779547782215",
+  "action": "send",
+  "from": "kens",
+  "tolist": [
+    "icef",
+    "test"
+  ],
+  "roomid": "wrErxtDgAA0jgXE5",
+  "msgtime": 1603876045165,
+  "msgtype": "news",
+  "info": {
+    "item": [
+      {
+        "title": "service ",
+        "description": "test",
+        "url": "http://xxx",
+        "picurl": "https://www.qq.com/xxx.jpg"
+      }
+    ]
+  }
+}

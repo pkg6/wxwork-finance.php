@@ -1,0 +1,24 @@
+{
+  "msgid": "2345881211604379705_1603877680",
+  "action": "send",
+  "from": "ken",
+  "tolist": [
+    "icef",
+    "test"
+  ],
+  "roomid": "wr2LO0CAAAFrTZCGWWAxBA",
+  "msgtime": 1603877680795,
+  "msgtype": "calendar",
+  "calendar": {
+    "title": "xxx业绩复盘会",
+    "creatorname": "test",
+    "attendeename": [
+      "aaa",
+      "bbb"
+    ],
+    "starttime": 1603882800,
+    "endtime": 1603886400,
+    "place": "",
+    "remarks": ""
+  }
+}

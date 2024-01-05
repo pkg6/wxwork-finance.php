@@ -1,0 +1,17 @@
+{
+  "msgid": "17955920891003447432_1603875627",
+  "action": "send",
+  "from": "kenshin",
+  "tolist": [
+    "wmGAgeDQAAHuRJbt4ZQI_1cqoQcf41WQ"
+  ],
+  "roomid": "",
+  "msgtime": 1603875626823,
+  "msgtype": "video",
+  "video": {
+    "md5sum": "d06fc80c01d6fbffcca3b229ba41eac6",
+    "filesize": 15169724,
+    "play_length": 108,
+    "sdkfileid": "MzAzMjYxMzAzNTYzMzgzMjMyMzQwMjAxMDAwMjA0MDBlNzc4YzAwNDEwZDA2ZmM4MGMwMWQ2ZmJmZmNjYTNiMjI5YmE0MWVhYzYwMjAxMDQwMjAxMDAwNDAwEjhORGRmTVRZNE9EZzFNREEyTlRjM056QXpORjgxTWpZeE9USTBOek5mTVRZd016ZzNOVFl5Tnc9PRogNTIzNGQ1NTQ5N2RhNDM1ZDhlZTU5ODk4NDQ4NzRhNDk="
+  }
+}

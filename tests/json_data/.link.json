@@ -1,0 +1,17 @@
+{
+  "msgid": "11788441727514772650_1603875624",
+  "action": "send",
+  "from": "kenshin",
+  "tolist": [
+    "0000726"
+  ],
+  "roomid": "",
+  "msgtime": 1603875624476,
+  "msgtype": "link",
+  "link": {
+    "title": "邀请你加入群聊",
+    "description": "技术支持群，进入可查看详情",
+    "link_url": "https://work.weixin.qq.com/wework_admin/external_room/join/exceed?vcode=xxx",
+    "image_url": "https://wework.qpic.cn/wwpic/xxx/0"
+  }
+}

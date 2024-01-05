@@ -1,0 +1,40 @@
+{
+  "msgid": "2500536226619379797_1576034482",
+  "action": "send",
+  "from": "nick",
+  "tolist": [
+    "XuJinSheng",
+    "15108264797"
+  ],
+  "roomid": "wrjc7bDwYAOAhf9quEwRRxyyoMm0QAAA",
+  "msgtime": 1576034482344,
+  "msgtype": "collect",
+  "collect": {
+    "room_name": "这是一个群",
+    "creator": "nick",
+    "create_time": "2019-12-11 11:21:22",
+    "title": "这是填表title",
+    "details": [
+      {
+        "id": 1,
+        "ques": "表项1，文本",
+        "type": "Text"
+      },
+      {
+        "id": 2,
+        "ques": "表项2，数字",
+        "type": "Number"
+      },
+      {
+        "id": 3,
+        "ques": "表项3，日期",
+        "type": "Date"
+      },
+      {
+        "id": 4,
+        "ques": "表项4，时间",
+        "type": "Time"
+      }
+    ]
+  }
+}

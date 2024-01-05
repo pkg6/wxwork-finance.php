@@ -1,0 +1,17 @@
+{
+  "action": "send",
+  "from": "18510382533",
+  "info": {
+    "content": "yinhuiyou的快速会议 已结束",
+    "meeting_id": 6072773153468854000,
+    "notification_type": 2
+  },
+  "msgid": "14158408185591086566_1700815962253",
+  "msgtime": 1700815958880,
+  "msgtype": "meeting_notification",
+  "roomid": "",
+  "tolist": [
+    "DuDuDu"
+  ],
+  "time": "2023-11-24 16:52:38:880"
+}

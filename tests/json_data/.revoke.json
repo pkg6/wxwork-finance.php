@@ -1,0 +1,14 @@
+{
+  "msgid": "15775510700152506326_1603875615",
+  "action": "recall",
+  "from": "kenshin",
+  "tolist": [
+    "wmUu0zBgAALV7ZymkcMyxvbTe8YdWxxA"
+  ],
+  "roomid": "",
+  "msgtime": 1603875615723,
+  "msgtype": "revoke",
+  "revoke": {
+    "pre_msgid": "14822339130656386894_1603875600"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "msgid": "11354299838102555191_1603875658",
+  "action": "send",
+  "from": "ken",
+  "tolist": [
+    "icef"
+  ],
+  "roomid": "",
+  "msgtime": 1603875657905,
+  "msgtype": "chatrecord",
+  "chatrecord": {
+    "title": "群聊",
+    "item": [
+      {
+        "type": "ChatRecordText",
+        "msgtime": 1603875610,
+        "content": "{\"content\":\"test\"}",
+        "from_chatroom": false
+      },
+      {
+        "type": "ChatRecordText",
+        "msgtime": 1603875620,
+        "content": "{\"content\":\"test2\"}",
+        "from_chatroom": false
+      }
+    ]
+  }
+}

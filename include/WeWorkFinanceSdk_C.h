@@ -20,26 +20,27 @@
 typedef struct WeWorkFinanceSdk_t WeWorkFinanceSdk_t;
 
 // 数据
-typedef struct Slice_t {
-    char* buf;
-    int len;
+typedef struct Slice_t
+{
+	char *buf;
+	int len;
 } Slice_t;
 
-typedef struct MediaData {
-    char* outindexbuf;
-    int out_len;
-    char* data;
-    int data_len;
-    int is_finish;
+typedef struct MediaData
+{
+	char *outindexbuf;
+	int out_len;
+	char *data;
+	int data_len;
+	int is_finish;
 } MediaData_t;
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
-//#ifdef __cplusplus
-//extern "C" {
-//#endif
-
-    WeWorkFinanceSdk_t* NewSdk();
-
+	WeWorkFinanceSdk_t *NewSdk();
 
 	/**
 	 * 初始化函数
@@ -54,7 +55,7 @@ typedef struct MediaData {
 	 *      0   - 成功
 	 *      !=0 - 失败
 	 */
-    int Init(WeWorkFinanceSdk_t* sdk, const char* corpid, const char* secret);
+	int Init(WeWorkFinanceSdk_t *sdk, const char *corpid, const char *secret);
 
 	/**
 	 * 拉取聊天记录函数
@@ -76,7 +77,7 @@ typedef struct MediaData {
 	 *      0   - 成功
 	 *      !=0 - 失败
 	 */
-    int GetChatData(WeWorkFinanceSdk_t* sdk, unsigned long long seq, unsigned int limit, const char *proxy,const char* passwd, int timeout,Slice_t* chatDatas);
+	int GetChatData(WeWorkFinanceSdk_t *sdk, unsigned long long seq, unsigned int limit, const char *proxy, const char *passwd, int timeout, Slice_t *chatDatas);
 
 	/**
      * @brief 解析密文.企业微信自有解密内容
@@ -87,7 +88,7 @@ typedef struct MediaData {
 	 *      0   - 成功
 	 *      !=0 - 失败
      */
-    int DecryptData(const char* encrypt_key, const char* encrypt_msg, Slice_t* msg);
+	int DecryptData(const char *encrypt_key, const char *encrypt_msg, Slice_t *msg);
 
 	/**
 	 * 拉取媒体消息函数
@@ -107,46 +108,45 @@ typedef struct MediaData {
 	 *      0   - 成功
 	 *      !=0 - 失败
 	 */
-	int GetMediaData(WeWorkFinanceSdk_t* sdk, const char* indexbuf,
-                     const char* sdkFileid,const char *proxy,const char* passwd, int timeout, MediaData_t* media_data);
+	int GetMediaData(WeWorkFinanceSdk_t *sdk, const char *indexbuf,
+					 const char *sdkFileid, const char *proxy, const char *passwd, int timeout, MediaData_t *media_data);
 
-    /**
+	/**
      * @brief 释放sdk，和NewSdk成对使用
      * @return
      */
-    void DestroySdk(WeWorkFinanceSdk_t* sdk);
+	void DestroySdk(WeWorkFinanceSdk_t *sdk);
 
+	//--------------下面接口为了其他语言例如python等调用c接口，酌情使用--------------
+	Slice_t *NewSlice();
 
-    //--------------下面接口为了其他语言例如python等调用c接口，酌情使用--------------
-    Slice_t* NewSlice();
-
-    /**
+	/**
      * @brief 释放slice，和NewSlice成对使用
      * @return
      */
-    void FreeSlice(Slice_t* slice);
+	void FreeSlice(Slice_t *slice);
 
-    /**
+	/**
      * @brief 为其他语言提供读取接口
      * @return 返回buf指针
      *     !=NULL - 成功
      *     NULL   - 失败
      */
-    char* GetContentFromSlice(Slice_t* slice);
-	int GetSliceLen(Slice_t* slice);
+	char *GetContentFromSlice(Slice_t *slice);
+	int GetSliceLen(Slice_t *slice);
 
 	// 媒体记录相关工具
 
-    MediaData_t*  NewMediaData();
+	MediaData_t *NewMediaData();
 
-    void FreeMediaData(MediaData_t* media_data);
+	void FreeMediaData(MediaData_t *media_data);
 
-    char* GetOutIndexBuf(MediaData_t* media_data);
-    char* GetData(MediaData_t* media_data);
-	int GetIndexLen(MediaData_t* media_data);
-	int GetDataLen(MediaData_t* media_data);
-    int IsMediaDataFinish(MediaData_t* media_data);
+	char *GetOutIndexBuf(MediaData_t *media_data);
+	char *GetData(MediaData_t *media_data);
+	int GetIndexLen(MediaData_t *media_data);
+	int GetDataLen(MediaData_t *media_data);
+	int IsMediaDataFinish(MediaData_t *media_data);
 
-//#ifdef __cplusplus
-//}
-//#endif
+#ifdef __cplusplus
+}
+#endif

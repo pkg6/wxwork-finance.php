@@ -22,15 +22,15 @@ typedef void FreeMediaData_t(MediaData_t*);
 int main(int argc, char* argv[])
 {
     int ret = 0;
-	//seq 表示该企业存档消息序号，该序号单调递增，拉取序号建议设置为上次拉取返回结果中最大序号。首次拉取时seq传0，sdk会返回有效期内最早的消息。
-	//limit 表示本次拉取的最大消息条数，取值范围为1~1000
-	//proxy与passwd为代理参数，如果运行sdk的环境不能直接访问外网，需要配置代理参数。sdk访问的域名是"https://qyapi.weixin.qq.com"。
-	//建议先通过curl访问"https://qyapi.weixin.qq.com"，验证代理配置正确后，再传入sdk。
-	//timeout 为拉取会话存档的超时时间，单位为秒，建议超时时间设置为5s。
-	//sdkfileid 媒体文件id，从解密后的会话存档中得到
-	//savefile 媒体文件保存路径
-	//encrypt_key 拉取会话存档返回的encrypt_random_key，使用配置在企业微信管理台的rsa公钥对应的私钥解密后得到encrypt_key。
-	//encrypt_chat_msg 拉取会话存档返回的encrypt_chat_msg
+	//seq 锟斤拷示锟斤拷锟斤拷业锟芥档锟斤拷息锟斤拷牛锟斤拷锟斤拷锟脚碉拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷取锟斤拷沤锟斤拷锟斤拷锟斤拷锟轿拷洗锟斤拷锟饺★拷锟斤拷亟锟斤拷锟斤拷锟斤拷锟斤拷锟脚★拷锟阶达拷锟斤拷取时seq锟斤拷0锟斤拷sdk锟结返锟斤拷锟斤拷效锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟较拷锟�
+	//limit 锟斤拷示锟斤拷锟斤拷锟斤拷取锟斤拷锟斤拷锟斤拷锟较拷锟斤拷锟斤拷锟饺≈碉拷锟轿�1~1000
+	//proxy锟斤拷passwd为锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟絪dk锟侥伙拷锟斤拷锟斤拷锟斤拷直锟接凤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷要锟斤拷锟矫达拷锟斤拷锟斤拷锟斤拷锟斤拷sdk锟斤拷锟绞碉拷锟斤拷锟斤拷锟斤拷"https://qyapi.weixin.qq.com"锟斤拷
+	//锟斤拷锟斤拷锟斤拷通锟斤拷curl锟斤拷锟斤拷"https://qyapi.weixin.qq.com"锟斤拷锟斤拷证锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷确锟斤拷锟劫达拷锟斤拷sdk锟斤拷
+	//timeout 为锟斤拷取锟结话锟芥档锟侥筹拷时时锟戒，锟斤拷位为锟诫，锟斤拷锟介超时时锟斤拷锟斤拷锟斤拷为5s锟斤拷
+	//sdkfileid 媒锟斤拷锟侥硷拷id锟斤拷锟接斤拷锟杰猴拷幕峄帮拷娴碉拷械玫锟�
+	//savefile 媒锟斤拷锟侥硷拷锟斤拷锟斤拷路锟斤拷
+	//encrypt_key 锟斤拷取锟结话锟芥档锟斤拷锟截碉拷encrypt_random_key锟斤拷使锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷业微锟脚癸拷锟斤拷台锟斤拷rsa锟斤拷钥锟斤拷应锟斤拷私钥锟斤拷锟杰猴拷玫锟絜ncrypt_key锟斤拷
+	//encrypt_chat_msg 锟斤拷取锟结话锟芥档锟斤拷锟截碉拷encrypt_chat_msg
     if (argc < 2) {
         printf("./sdktools 1(chatmsg) 2(mediadata) 3(decryptdata)\n");
         printf("./sdktools 1 seq limit proxy passwd timeout\n");
@@ -47,14 +47,14 @@ int main(int argc, char* argv[])
     newsdk_t* newsdk_fn = (newsdk_t*)dlsym(so_handle, "NewSdk");
     WeWorkFinanceSdk_t* sdk = newsdk_fn();
 
-	//使用sdk前需要初始化，初始化成功后的sdk可以一直使用。
-	//如需并发调用sdk，建议每个线程持有一个sdk实例。
-	//初始化时请填入自己企业的corpid与secrectkey。
+	//使锟斤拷sdk前锟斤拷要锟斤拷始锟斤拷锟斤拷锟斤拷始锟斤拷锟缴癸拷锟斤拷锟絪dk锟斤拷锟斤拷一直使锟矫★拷
+	//锟斤拷锟借并锟斤拷锟斤拷锟斤拷sdk锟斤拷锟斤拷锟斤拷每锟斤拷锟竭程筹拷锟斤拷一锟斤拷sdk实锟斤拷锟斤拷
+	//锟斤拷始锟斤拷时锟斤拷锟斤拷锟斤拷锟皆硷拷锟斤拷业锟斤拷corpid锟斤拷secrectkey锟斤拷
     Init_t* init_fn = (Init_t*)dlsym(so_handle, "Init");
     DestroySdk_t* destroysdk_fn = (DestroySdk_t*)dlsym(so_handle, "DestroySdk");
-    ret = init_fn(sdk, "wwd08c8e7c775ab44d", "zJ6k0naVVQ--gt9PUSSEvs03zW_nlDVmjLCTOTAfrew");
+    ret = init_fn(sdk, "wwdf65802ca25ec195", "-Ta6WMWxBhfGolWnnlO15nQckj3DRKAowUOdX2fwvzE");
     if (ret != 0) {
-        //sdk需要主动释放
+        //sdk锟斤拷要锟斤拷锟斤拷锟酵凤拷
         destroysdk_fn(sdk);
         printf("init sdk err ret:%d\n", ret);
         return -1;
@@ -62,15 +62,15 @@ int main(int argc, char* argv[])
 
     int type = strtoul(argv[1], NULL, 10);
     if (type == 1) {
-        //拉取会话存档
+        //锟斤拷取锟结话锟芥档
         uint64_t iSeq = strtoul(argv[2], NULL, 10);
         uint64_t iLimit = strtoul(argv[3], NULL, 10);
         uint64_t timeout = strtoul(argv[6], NULL, 10);
-        
+
         NewSlice_t* newslice_fn = (NewSlice_t*)dlsym(so_handle, "NewSlice");
         FreeSlice_t* freeslice_fn = (FreeSlice_t*)dlsym(so_handle, "FreeSlice");
 
-		//每次使用GetChatData拉取存档前需要调用NewSlice获取一个chatDatas，在使用完chatDatas中数据后，还需要调用FreeSlice释放。
+		//每锟斤拷使锟斤拷GetChatData锟斤拷取锟芥档前锟斤拷要锟斤拷锟斤拷NewSlice锟斤拷取一锟斤拷chatDatas锟斤拷锟斤拷使锟斤拷锟斤拷chatDatas锟斤拷锟斤拷锟捷后，伙拷锟斤拷要锟斤拷锟斤拷FreeSlice锟酵放★拷
         Slice_t* chatDatas = newslice_fn();
         GetChatData_t* getchatdata_fn = (GetChatData_t*)dlsym(so_handle, "GetChatData");
         ret = getchatdata_fn(sdk, iSeq, iLimit, argv[4], argv[5], timeout, chatDatas);
@@ -81,9 +81,9 @@ int main(int argc, char* argv[])
         }
         printf("GetChatData len:%d data:%s\n", chatDatas->len, chatDatas->buf);
         freeslice_fn(chatDatas);
-    } 
+    }
     else if (type == 2) {
-		//拉取媒体文件
+		//锟斤拷取媒锟斤拷锟侥硷拷
         std::string index;
         uint64_t timeout = strtoul(argv[5], NULL, 10);
         int isfinish = 0;
@@ -92,22 +92,22 @@ int main(int argc, char* argv[])
         NewMediaData_t* newmediadata_fn = (NewMediaData_t*)dlsym(so_handle, "NewMediaData");
         FreeMediaData_t* freemediadata_fn = (FreeMediaData_t*)dlsym(so_handle, "FreeMediaData");
 
-		//媒体文件每次拉取的最大size为512k，因此超过512k的文件需要分片拉取。若该文件未拉取完整，mediaData中的is_finish会返回0，同时mediaData中的outindexbuf会返回下次拉取需要传入GetMediaData的indexbuf。
-		//indexbuf一般格式如右侧所示，”Range:bytes=524288-1048575“，表示这次拉取的是从524288到1048575的分片。单个文件首次拉取填写的indexbuf为空字符串，拉取后续分片时直接填入上次返回的indexbuf即可。
+		//媒锟斤拷锟侥硷拷每锟斤拷锟斤拷取锟斤拷锟斤拷锟絪ize为512k锟斤拷锟斤拷顺锟斤拷锟�512k锟斤拷锟侥硷拷锟斤拷要锟斤拷片锟斤拷取锟斤拷锟斤拷锟斤拷锟侥硷拷未锟斤拷取锟斤拷锟斤拷锟斤拷mediaData锟叫碉拷is_finish锟结返锟斤拷0锟斤拷同时mediaData锟叫碉拷outindexbuf锟结返锟斤拷锟铰达拷锟斤拷取锟斤拷要锟斤拷锟斤拷GetMediaData锟斤拷indexbuf锟斤拷
+		//indexbuf一锟斤拷锟绞斤拷锟斤拷也锟斤拷锟绞撅拷锟斤拷锟絉ange:bytes=524288-1048575锟斤拷锟斤拷锟斤拷示锟斤拷锟斤拷锟饺★拷锟斤拷谴锟�524288锟斤拷1048575锟侥凤拷片锟斤拷锟斤拷锟斤拷锟侥硷拷锟阶达拷锟斤拷取锟斤拷写锟斤拷indexbuf为锟斤拷锟街凤拷锟斤拷锟斤拷锟斤拷取锟斤拷锟斤拷锟斤拷片时直锟斤拷锟斤拷锟斤拷锟较次凤拷锟截碉拷indexbuf锟斤拷锟缴★拷
         while (isfinish == 0) {
-            //每次使用GetMediaData拉取存档前需要调用NewMediaData获取一个mediaData，在使用完mediaData中数据后，还需要调用FreeMediaData释放。
+            //每锟斤拷使锟斤拷GetMediaData锟斤拷取锟芥档前锟斤拷要锟斤拷锟斤拷NewMediaData锟斤拷取一锟斤拷mediaData锟斤拷锟斤拷使锟斤拷锟斤拷mediaData锟斤拷锟斤拷锟捷后，伙拷锟斤拷要锟斤拷锟斤拷FreeMediaData锟酵放★拷
             printf("index:%s\n", index.c_str());
             MediaData_t* mediaData = newmediadata_fn();
             ret = getmediadata_fn(sdk, index.c_str(), argv[2], argv[3], argv[4], timeout, mediaData);
             if (ret != 0) {
-                //单个分片拉取失败建议重试拉取该分片，避免从头开始拉取。
+                //锟斤拷锟斤拷锟斤拷片锟斤拷取失锟杰斤拷锟斤拷锟斤拷锟斤拷锟斤拷取锟矫凤拷片锟斤拷锟斤拷锟斤拷锟酵凤拷锟绞硷拷锟饺★拷锟�
                 freemediadata_fn(mediaData);
                 printf("GetMediaData err ret:%d\n", ret);
                 return -1;
             }
             printf("content size:%d isfin:%d outindex:%s\n", mediaData->data_len, mediaData->is_finish, mediaData->outindexbuf);
 
-			//大于512k的文件会分片拉取，此处需要使用追加写，避免后面的分片覆盖之前的数据。
+			//锟斤拷锟斤拷512k锟斤拷锟侥硷拷锟斤拷锟狡拷锟饺★拷锟斤拷舜锟斤拷锟揭癸拷锟阶凤拷锟叫达拷锟斤拷锟斤拷锟斤拷锟斤拷姆锟狡拷锟斤拷锟街帮拷锟斤拷锟斤拷荨锟�
             char file[200];
             snprintf(file, sizeof(file), "%s", argv[6]);
             FILE* fp = fopen(file, "ab+");
@@ -121,17 +121,17 @@ int main(int argc, char* argv[])
             fwrite(mediaData->data, mediaData->data_len, 1, fp);
             fclose(fp);
 
-            //获取下次拉取需要使用的indexbuf
+            //锟斤拷取锟铰达拷锟斤拷取锟斤拷要使锟矫碉拷indexbuf
             index.assign(string(mediaData->outindexbuf));
             isfinish = mediaData->is_finish;
             freemediadata_fn(mediaData);
         }
-    } 
+    }
     else if (type == 3) {
-		//解密会话存档内容
-		//sdk不会要求用户传入rsa私钥，保证用户会话存档数据只有自己能够解密。
-		//此处需要用户先用rsa私钥解密encrypt_random_key后，作为encrypt_key参数传入sdk来解密encrypt_chat_msg获取会话存档明文。
-		//每次使用DecryptData解密会话存档前需要调用NewSlice获取一个Msgs，在使用完Msgs中数据后，还需要调用FreeSlice释放。
+		//锟斤拷锟杰会话锟芥档锟斤拷锟斤拷
+		//sdk锟斤拷锟斤拷要锟斤拷锟矫伙拷锟斤拷锟斤拷rsa私钥锟斤拷锟斤拷证锟矫伙拷锟结话锟芥档锟斤拷锟斤拷只锟斤拷锟皆硷拷锟杰癸拷锟斤拷锟杰★拷
+		//锟剿达拷锟斤拷要锟矫伙拷锟斤拷锟斤拷rsa私钥锟斤拷锟斤拷encrypt_random_key锟斤拷锟斤拷为encrypt_key锟斤拷锟斤拷锟斤拷锟斤拷sdk锟斤拷锟斤拷锟斤拷encrypt_chat_msg锟斤拷取锟结话锟芥档锟斤拷锟侥★拷
+		//每锟斤拷使锟斤拷DecryptData锟斤拷锟杰会话锟芥档前锟斤拷要锟斤拷锟斤拷NewSlice锟斤拷取一锟斤拷Msgs锟斤拷锟斤拷使锟斤拷锟斤拷Msgs锟斤拷锟斤拷锟捷后，伙拷锟斤拷要锟斤拷锟斤拷FreeSlice锟酵放★拷
         NewSlice_t* newslice_fn = (NewSlice_t*)dlsym(so_handle, "NewSlice");
         FreeSlice_t* freeslice_fn = (FreeSlice_t*)dlsym(so_handle, "FreeSlice");
 
